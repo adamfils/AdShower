@@ -1,0 +1,189 @@
+body {
+    background-color: #121212;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+}
+
+.header-text {
+    font-size: 25px;
+    left: 50%; /* Center horizontally */
+}
+
+.popup {
+    background-color: #6200EE;
+    color: #FFFFFF;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    display: none;
+    width: 80%; /* Adjust if needed */
+    animation: pulse 2s infinite; /* This line applies the animation, making it last 2 seconds and repeat infinitely */
+    z-index: 2; /* Ensure popup is above the phone number section */
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.02);
+        opacity: .95;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rubberBand {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.25);
+    }
+    40% {
+        transform: scale(0.75);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    65% {
+        transform: scale(0.95);
+    }
+    75% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.rubber-band {
+    animation: rubberBand 0.75s;
+}
+
+.popup button {
+    background-color: #FFFFFF; /* White background */
+    color: #6200EE; /* Text color #6200EE */
+    border: 2px solid #6200EE; /* Add border to make the button stand out */
+    padding: 15px 20px; /* Increased padding for better visual */
+    border-radius: 15px; /* Adjusted for a rounded look */
+    cursor: pointer;
+    width: 100%; /* Adjust width calculation to account for padding */
+    box-sizing: border-box;
+    display: block;
+    margin-top: 10px; /* Space above the button */
+    font-size: 18px; /* Larger font size for the text */
+    text-align: center; /* Center the text inside the button */
+}
+
+.popup label {
+    color: #808080;
+    display: block; /* Ensures label is on its own line */
+}
+
+#watchAdBtn {
+    margin-top: 40px;
+}
+
+#phoneNumberInput, #showAdBtn {
+    background-color: #FFFFFF; /* White background */
+    color: #6200EE; /* Text color */
+    border: 2px solid #6200EE; /* Border to match the popup button */
+    padding: 15px 20px; /* Padding */
+    border-radius: 15px; /* Rounded corners */
+    margin-top: 20px; /* Spacing */
+    width: 100%; /* Adjusting width based on padding and border */
+    box-sizing: border-box;
+    display: block; /* Make elements block level for full width */
+    font-size: 20px; /* Font size */
+}
+
+#phoneNumberInput {
+    margin-top: 40px; /* Extra spacing from the top */
+    margin-bottom: 10px; /* Spacing between input and button */
+}
+
+#phoneNumberSection {
+    position: fixed; /* Use fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for true centering */
+    z-index: 1; /* Ensure it is below the popup */
+    text-align: center; /* Center the contents */
+    padding: 20px;
+    width: 80%;
+    /*display: none;*/ /* Initially hide it, show via JavaScript if needed */
+}
+
+.toast-message {
+    visibility: hidden; /* Initially hidden */
+    min-width: 250px;
+    margin-left: -125px; /* Half of the width to center it */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 30px;
+    padding: 16px;
+    position: fixed;
+    z-index: 3; /* Higher than popup to ensure visibility */
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+/* Add this class dynamically to show the toast */
+.show-toast {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
